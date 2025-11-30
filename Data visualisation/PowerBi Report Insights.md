@@ -59,24 +59,11 @@ Even if **10–15%** of bike buyers add accessories/clothing → **AOV increases
 | Accessory discounts on repeat orders | Long-term retention |
 | Season-based clothing launches | Fresh recurring revenue |
 
-**Revenue growth already exists inside the customer base.**
+**Revenue growth already exists inside the customer 
 
 ---
 
-## 4. Gender Gap Means Untapped Market  
-Sales lean heavily male.  
-The female biker community is growing globally — ignoring it means revenue leakage.
-
-**Growth Ideas:**
-- Introduce women-specific riding gear  
-- Feature women bikers in marketing campaigns  
-- Host female-only riding events  
-
-Not just revenue — **brand perception evolves too.**
-
----
-
-## 5. Yearly Growth Exists, But It's Not Exponential Yet  
+## 4. Yearly Growth Exists, But It's Not Exponential Yet  
 Sales trend is healthy, but the year-end dip can’t be ignored.
 
 A dip is a story.  
@@ -107,7 +94,6 @@ The real value is knowing **what those charts mean** and **what actions they dri
 | Priority | Action | Outcome |
 |----------|--------|----------|
 | ⭐ Highest | Promote accessories bundles | Instant revenue increase |
-| ⭐ High | Target growing female market | Capture an untapped segment |
 | ⭐ Medium | Expand Europe regions | Diversifies revenue streams |
 | ⭐ Medium | Investigate Q4 dip | Fix root issue & stabilize growth |
 
