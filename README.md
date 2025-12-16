@@ -1,141 +1,126 @@
-# Data Warehouse and Analytics Project
+# Customer Churn Prediction System
 
-Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+An end-to-end customer churn analytics and machine learning project that transforms raw transactional data into actionable churn risk insights using SQL Server, Power BI, and Python-based machine learning.
 
----
-## 🏗️ Data Architecture
+This project demonstrates how data engineering, analytics, and ML can work together to support proactive customer retention decisions.
 
-The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
-![Data Architecture](docs/data_architecture.png)
+## 📌 Problem Statement
 
-1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
-2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
-3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
+Customer churn leads to direct revenue loss and increased acquisition costs.
+The objective of this project is to identify customers at high risk of churn using historical transaction and behavior data so that retention actions can be taken before disengagement becomes permanent.
 
----
-## 📖 Project Overview
+## 🎯 Business Objective
 
-This project involves:
+Predict whether a customer is likely to churn in a defined future time window
 
-1. **Data Architecture**: Designing a Modern Data Warehouse Using Medallion Architecture **Bronze**, **Silver**, and **Gold** layers.
-2. **ETL Pipelines**: Extracting, transforming, and loading data from source systems into the warehouse.
-3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
-4. **Analytics & Reporting**: Creating SQL-based reports and dashboards for actionable insights.
-5. **Data Visualisation**: Develop an interactive Power BI dashboard to visualize key business metrics and trends, enabling stakeholders to explore data insights through intuitive visual analytics.
+Prioritize churn recall over accuracy to minimize missed at-risk customers
 
+Provide probability-based churn scores instead of rigid binary predictions
 
-🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
-- SQL Development
-- Data Architect
-- Data Engineering  
-- ETL Pipeline Developer  
-- Data Modeling  
-- Data Analytics
-- Data Visualisation
+## 🧱 Project Architecture
+This project follows a full analytics pipeline:
 
----
+### SQL Data Warehouse (Medallion Architecture)
+Bronze: Raw sales and customer data
+Silver: Cleaned and standardized tables
+Gold: Analytics-ready customer behavior tables
 
-## 🛠️ Important Links & Tools:
+### SQL Exploratory Analysis
+Customer behavior trends
+Purchase frequency and recency analysis
+Advanced queries using CTEs and window functions
 
-Everything is for Free!
-- **[Datasets](datasets/):** Access to the project dataset (csv files).
-- **[SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads):** Lightweight server for hosting your SQL database.
-- **[SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16):** GUI for managing and interacting with databases.
-- **[Git Repository](https://github.com/):** Set up a GitHub account and repository to manage, version, and collaborate on your code efficiently.
-- **[DrawIO](https://www.drawio.com/):** Design data architecture, models, flows, and diagrams.
----
+### Business Dashboard (Power BI)
+Sales and customer KPIs
+Customer segmentation
+Churn indicators for stakeholders
 
-## 🚀 Project Requirements
+### Machine Learning (Python)
+Feature engineering
+Churn modeling
+Evaluation and threshold tuning
 
-### Building the Data Warehouse (Data Engineering)
-
-#### Objective
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
-
-#### Specifications
-- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-- **Scope**: Focus on the latest dataset only; historization of data is not required.
-- **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
-
----
-
-### BI: Analytics & Reporting (Data Analysis)
-
-#### Objective
-Develop SQL-based analytics to deliver detailed insights into:
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
-
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
-
-## 📂 Repository Structure
-```
-data-warehouse-project/
+📂 Repository Structure
+Customer-Churn-Analytics/
 │
-├── Data visualisation/         # visualize key business metrics and trends and get impactful insights and decisions        
-│   ├── Power BI Report.png
-│   ├── Power BI Report Insights.md
-│       
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)                         
-│   ├── source_crm/
-│       ├──cust_info.csv
-│       ├── prd_info.csv
-│       ├──sales_details.csv
-│   ├── source_erp/
-│       ├── CUST_AZ12.csv
-│       ├── LOC_A101.csv
-│       ├── PX_CAT_G1V2.csv                        
+├── 01_Data_Warehouse_SQL/
+│   ├── Bronze_Raw_Load.sql
+│   ├── Silver_Cleaned_Tables.sql
+│   ├── Gold_Analytics_Tables.sql
 │
-├── docs/                               # Project documentation and architecture details
-│   ├── etl.png                         # file shows all different techniquies and methods of ETL
-│   ├── data_architecture.png           # file shows the project's architecture
-│   ├── data_catalog.md                 # Catalog of datasets, including field descriptions and metadata
-│   ├── data_flow.png                   # file for the data flow diagram
-│   ├── data_model.png                  # file for data models (star schema)
-|   ├── data_integration                # how tables are related
-│   ├── naming_conventions.md           # Consistent naming guidelines for tables, columns, and files
+├── 02_SQL_Exploratory_Analysis/
+│   ├── Customer_Behavior_Analysis.sql
+│   ├── Advanced_SQL_Queries.sql
 │
-├── exploratory_data_analysis/
-│   ├──00_init_database.sql
-│   ├──01_database_exploration.sql
-│   ├──02_dimensions_exploration.sql
-│   ├──03_date_range_exploration.sql
-│   ├──04_measures_exploration.sql
-│   ├──05_magnitude_analysis.sql
-│   ├──06_ranking_analysis.sql
-│   ├──07_change_over_time_analysis.sql
-│   ├──08_cumulative_analysis.sql
-│   ├──09_performance_analysis.sql
-│   ├──10_data_segmentation.sql
-│   ├──11_part_to_whole_analysis.sql
-│   ├──12_report_customers.sql
-│   ├──13_report_products.sql
-│  
-├── scripts/                            # SQL scripts for ETL and transformations
-│         ├── bronze/                         # Scripts for extracting and loading raw data
-│                  ├── ddl_bronze.sql
-│                  ├── proc_load_bronze.sql
+├── 03_PowerBI_Dashboard/
+│   ├── Customer_Churn_Dashboard.pbix
+│   └── dashboard_screenshots/
 │
-│         ├── silver/                         # Scripts for cleaning and transforming data
-│                   ├── ddl_silver.sql
-│                   ├── proc_load_silver.sql   
-│         ├── gold/                           # Scripts for creating analytical models
-│                   ├──ddl_gold.sql
-│          ── init_database.sql
-├── tests/                              # Test scripts and quality files
-│       ├── quality_checks_gold.sql
-│       ├── quality_checks_silver.sql
+├── 04_Churn_Prediction_ML/
+│   ├── Customer_Churn_Prediction_Retail.ipynb
+│   └── requirements.txt
 │
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
-```
----
----
+└── README.md
 
-## 🛡️ License
+## 🛠️ Tools & Technologies
+Programming: Python, SQL
+Machine Learning: Scikit-learn, Random Forest
+Data Engineering: SQL Server, ETL Pipelines, Medallion Architecture
+Visualization: Power BI
+Analysis: Pandas, NumPy, Matplotlib, Seaborn
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+## 🔧 Feature Engineering
+Key behavioral features engineered from transactional data:
+Recency (time since last purchase)
+Total orders and total quantity
+Customer lifespan
+Total sales and average order value
+Average monthly spend
+
+These features capture engagement, value, and behavioral change, which are critical for churn prediction.
+
+## 🧠 Churn Definition
+A customer is labeled as churned if they made no purchases within a defined future observation window after the prediction cutoff date.
+
+This time-based definition:
+Prevents data leakage
+Reflects real-world churn behavior
+Enables realistic model evaluation
+
+## 🤖 Model Training
+Model used: Random Forest Classifier
+Reason: Handles non-linear relationships, feature interactions, and correlated features well
+Class imbalance handled using class_weight='balanced'
+
+## 📊 Model Performance
+Accuracy: 83%
+Recall (Churn class): 95% (after threshold tuning)
+
+## Why Recall Matters
+Missing a churned customer is more costly than incorrectly flagging an active one.
+The model is optimized to catch as many at-risk customers as possible.
+
+## 🎚️ Threshold Tuning
+Instead of using the default 0.50 threshold:
+The decision threshold was lowered to 0.30
+This increased churn recall significantly
+Supports early intervention strategies
+
+## 📈 Model Interpretability
+Feature importance analysis shows:
+Recency is the strongest churn driver
+Customer lifespan strongly influences retention
+Spending and frequency features provide supporting signals
+This aligns with business intuition: recent disengagement matters more than historical value.
+
+## 💼 Business Impact
+Enables proactive retention instead of reactive churn handling
+Helps teams prioritize high-risk customers using churn probabilities
+Supports smarter allocation of marketing and retention resources
+
+## 🚀 Key Takeaway
+This project demonstrates how combining data warehousing, analytics, and machine learning can create a practical churn prediction system that delivers real business value.
+
+## 📎 Links
+GitHub Repository: (add link here)
+Power BI Dashboard: (add link or screenshots)
