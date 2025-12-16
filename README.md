@@ -51,25 +51,66 @@ This project follows a full analytics pipeline:
 ```
 Customer-Churn-Analytics/
 │
-├── 01_Data_Warehouse_SQL/
-│   ├── Bronze_Raw_Load.sql
-│   ├── Silver_Cleaned_Tables.sql
-│   ├── Gold_Analytics_Tables.sql
+├── Churn_Prediction_ML/
+│   ├── Customer_Churn_Analysis_and_Prediction.ipynb
+│   └── placeholder
 │
-├── 02_SQL_Exploratory_Analysis/
-│   ├── Customer_Behavior_Analysis.sql
-│   ├── Advanced_SQL_Queries.sql
-│
-├── 03_PowerBI_Dashboard/
-│   ├── Customer_Churn_Dashboard.pbix
-│   └── dashboard_screenshots/
-│
-├── 04_Churn_Prediction_ML/
-│   ├── Customer_Churn_Prediction_Retail.ipynb
-│   └── requirements.txt
-│
+├── Data_Warehouse_SQL/
+│   ├── datasets/
+│   │   ├── source_crm/
+│   │   │   ├── cust_info.csv
+│   │   │   ├── placeholder
+│   │   │   ├── prd_info.csv
+│   │   │   └── sales_details.csv
+│   │   ├── source_erp/
+│   │   │   ├── CUST_AZ12.csv
+│   │   │   ├── LOC_A101.csv
+│   │   │   ├── PX_CAT_G1V2.csv  
+│   ├── docs/
+│   │   ├── data_architecture.png
+│   │   ├── data_catalog.md
+│   │   ├── data_flow.png
+│   │   ├── data_integration.png
+│   │   ├── data_model.png
+│   │   ├── etl.png
+│   │   ├── naming_conventions.md
+│   │   
+│   ├── scripts/
+│   │   ├── bronze/
+│   │   │   ├── ddl_bronze.sql
+│   │   │   ├── placeholder
+│   │   │   └── proc_load_bronze.sql
+│   │   ├── gold/
+│   │   │   ├── ddl_gold.sql
+│   │   │ 
+│   │   ├── silver/
+|   |   |    ├──ddl_silver.sql
+|   |   |    └──proc_load_silver.sql
+│   │   ├── init_database.sql
+│   ├── tests/
+│   │   ├── placeholder
+│   │   ├── quality_checks_gold.sql
+│   │   └── quality_checks_silver.sql
+├── PowerBI_Dashboard/
+│   ├── Power Bi Report.png
+│   ├── PowerBi Report Insights.md
+├── SQL_Exploratory_Analysis/
+│   ├── 00_init_database.sql
+│   ├── 01_database_exploration.sql
+│   ├── 02_dimensions_exploration.sql
+│   ├── 03_date_range_exploration.sql
+│   ├── 04_measures_exploration.sql
+│   ├── 05_magnitude_analysis.sql
+│   ├── 06_ranking_analysis.sql
+│   ├── 07_change_over_time_analysis.sql
+│   ├── 08_cumulative_analysis.sql
+│   ├── 09_performance_analysis.sql
+│   ├── 10_data_segmentation.sql
+│   ├── 11_part_to_whole_analysis.sql
+│   ├── 12_report_customers.sql
+│   ├── 13_report_products.sql
+├── LICENSE
 └── README.md
-```
 
 ---
 
@@ -166,7 +207,7 @@ This project demonstrates how combining data warehousing, analytics, and machine
 ## 📎 Links
 
 - **GitHub Repository**: [https://github.com/the-noble-analyst/Customer-Churn-Analytics](#)
-- **Power BI Dashboard**: [https://github.com/the-noble-analyst/Customer-Churn-Analytics/blob/main/PowerBI_Dashboard/](https://github.com/the-noble-analyst/Customer-Churn-Analytics/blob/main/PowerBI_Dashboard/Power%20Bi%20Report.png](#)
+- **Power BI Dashboard**: [(https://github.com/the-noble-analyst/Customer-Churn-Analytics/blob/main/PowerBI_Dashboard/Power%20Bi%20Report.png](#)
 
 ---
 
