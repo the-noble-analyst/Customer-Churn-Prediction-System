@@ -52,10 +52,12 @@ Evaluation and threshold tuning
 Customer-Churn-Analytics/
 │
 ├── 01_Data_Warehouse_SQL/
+|
 │   ├── Bronze_Raw_Load.sql
 │   ├── Silver_Cleaned_Tables.sql
 │   ├── Gold_Analytics_Tables.sql
 │
+|
 ├── 02_SQL_Exploratory_Analysis/
 │   ├── Customer_Behavior_Analysis.sql
 │   ├── Advanced_SQL_Queries.sql
