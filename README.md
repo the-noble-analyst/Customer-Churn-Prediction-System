@@ -214,6 +214,7 @@ This project demonstrates how combining data warehousing, analytics, and machine
 ## Credits and Attribution
 
 The data warehouse and SQL exploratory analysis components in this repository are based on an educational data warehouse project by Data With Baraa and are used for learning and extension purposes.
+
 All churn modeling, feature engineering, machine learning, Power BI dashboards, and business insights are original work implemented as part of this project.
 
 
