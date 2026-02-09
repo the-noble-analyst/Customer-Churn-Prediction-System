@@ -219,9 +219,9 @@ All churn modeling, feature engineering, machine learning, Power BI dashboards, 
 
 
 ## 📝 License
-This repository is licensed under the MIT License for original code, analysis, machine learning models, and visualizations authored in this project.
+This repository is licensed under the MIT License for original code, machine learning models, analytics, and visualizations authored in this project.
 
-Certain folders contain educational material credited to their original author and are included strictly for learning and extension purposes. Those components follow their respective usage terms as noted in their local README files.
+Folders containing educational data warehouse and SQL analysis material are credited to their original author and follow their respective usage terms as described in their local README files.
 
 
 ## 🤝 Contributing
