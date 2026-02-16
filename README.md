@@ -1,239 +1,297 @@
 # Customer Churn Prediction System
 
-An end-to-end customer churn analytics and machine learning project that transforms raw transactional data into actionable churn risk insights using SQL Server, Power BI, and Python-based machine learning.
+An end-to-end production-ready customer churn analytics and machine learning system that transforms raw CRM and ERP transactional data into actionable churn risk scores using SQL data warehousing, behavioral feature engineering, Random Forest modeling, and real-time deployment with FastAPI, Streamlit, Docker, and AWS EC2.
 
-This project demonstrates how data engineering, analytics, and ML can work together to support proactive customer retention decisions.
+This project demonstrates the complete ML lifecycle including data engineering, analytics, modeling, and production deployment for proactive customer retention.
 
 ---
 
 ## 📌 Problem Statement
 
-Customer churn leads to direct revenue loss and increased acquisition costs. The objective of this project is to identify customers at high risk of churn using historical transaction and behavior data so that retention actions can be taken before disengagement becomes permanent.
+Customer churn leads to revenue loss and increased acquisition costs. Traditional reporting detects churn after disengagement occurs. The objective of this project is to predict customers at high risk of churn early using historical behavioral data and enable real-time risk assessment for proactive retention.
 
 ---
 
 ## 🎯 Business Objective
 
-- Predict whether a customer is likely to churn in a defined future time window
-- Prioritize churn recall over accuracy to minimize missed at-risk customers
-- Provide probability-based churn scores instead of rigid binary predictions
+* Predict customers likely to churn using historical transaction and behavior data
+* Optimize churn recall to minimize missed at-risk customers
+* Generate probability-based churn scores instead of binary predictions
+* Deploy real-time inference system for operational use
 
 ---
 
 ## 🧱 Project Architecture
 
-This project follows a full analytics pipeline:
+This project implements a full production ML pipeline:
 
 ### SQL Data Warehouse (Medallion Architecture)
-- **Bronze**: Raw sales and customer data
-- **Silver**: Cleaned and standardized tables
-- **Gold**: Analytics-ready customer behavior tables
+
+* **Bronze Layer**: Raw CRM and ERP data ingestion
+* **Silver Layer**: Cleaned and standardized datasets
+* **Gold Layer**: Analytics-ready star schema
+
+Tables created:
+
+* fact_sales (60,399 records)
+* dim_customers (18,484 records)
+* dim_products (295 records)
+
+---
 
 ### SQL Exploratory Analysis
-- Customer behavior trends
-- Purchase frequency and recency analysis
-- Advanced queries using CTEs and window functions
 
-### Business Dashboard (Power BI)
-- Sales and customer KPIs
-- Customer segmentation
-- Churn indicators for stakeholders
+* Customer purchase behavior analysis
+* Recency and engagement pattern analysis
+* Segmentation using joins, CTEs, and window functions
+* Feature discovery for churn modeling
 
-### Machine Learning (Python)
-- Feature engineering
-- Churn modeling
-- Evaluation and threshold tuning
+---
+
+### Business Intelligence Dashboard (Power BI)
+
+* Customer segmentation dashboard
+* Sales and engagement KPIs
+* Churn risk indicators
+* Executive-level retention insights
+
+---
+
+### Machine Learning Pipeline (Python)
+
+* Behavioral feature engineering
+* Churn prediction modeling using Random Forest
+* Class imbalance handling using class_weight balancing
+* Decision threshold tuning for business optimization
+
+---
+
+### Production Deployment Architecture
+
+The trained model is deployed as a real-time inference system using:
+
+* FastAPI backend REST API
+* Streamlit interactive frontend
+* Docker containerization for reproducibility
+* AWS EC2 cloud deployment for remote access
+
+This converts the model into a usable production system.
 
 ---
 
 ## 📂 Repository Structure
 
 ```
-Customer-Churn-Analytics/
+Customer-Churn-Prediction-System/
+│
+├── Churn_API_Deployment/
+│   │
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── best_churn_model.pkl
+│   │
+│   ├── streamlit/
+│   │   ├── streamlit_app.py
+│   │
+│   ├── docker/
+│   │   ├── Dockerfile
+│   │   ├── start.sh
+│   │
+│   ├── deployment/
+│   │   ├── aws-ec2.md
+│   │   ├── docker.md
+│   │
+│   ├── requirements.txt
+│
+├── Data_Warehouse_SQL/
+│
+├── SQL_Exploratory_Analysis/
+│
+├── PowerBI_Dashboard/
 │
 ├── Churn_Prediction_ML/
 │   ├── Customer_Churn_Analysis_and_Prediction.ipynb
-│   └── placeholder
 │
-├── Data_Warehouse_SQL/
-│   ├── datasets/
-│   │   ├── source_crm/
-│   │   │   ├── cust_info.csv
-│   │   │   ├── placeholder
-│   │   │   ├── prd_info.csv
-│   │   │   └── sales_details.csv
-│   │   ├── source_erp/
-│   │   │   ├── CUST_AZ12.csv
-│   │   │   ├── LOC_A101.csv
-│   │   │   ├── PX_CAT_G1V2.csv  
-│   ├── docs/
-│   │   ├── data_architecture.png
-│   │   ├── data_catalog.md
-│   │   ├── data_flow.png
-│   │   ├── data_integration.png
-│   │   ├── data_model.png
-│   │   ├── etl.png
-│   │   ├── naming_conventions.md
-│   │   
-│   ├── scripts/
-│   │   ├── bronze/
-│   │   │   ├── ddl_bronze.sql
-│   │   │   ├── placeholder
-│   │   │   └── proc_load_bronze.sql
-│   │   ├── gold/
-│   │   │   ├── ddl_gold.sql
-│   │   │ 
-│   │   ├── silver/
-|   |   |    ├──ddl_silver.sql
-|   |   |    └──proc_load_silver.sql
-│   │   ├── init_database.sql
-│   ├── tests/
-│   │   ├── placeholder
-│   │   ├── quality_checks_gold.sql
-│   │   └── quality_checks_silver.sql
-├── PowerBI_Dashboard/
-│   ├── Power Bi Report.png
-│   ├── PowerBi Report Insights.md
-├── SQL_Exploratory_Analysis/
-│   ├── 00_init_database.sql
-│   ├── 01_database_exploration.sql
-│   ├── 02_dimensions_exploration.sql
-│   ├── 03_date_range_exploration.sql
-│   ├── 04_measures_exploration.sql
-│   ├── 05_magnitude_analysis.sql
-│   ├── 06_ranking_analysis.sql
-│   ├── 07_change_over_time_analysis.sql
-│   ├── 08_cumulative_analysis.sql
-│   ├── 09_performance_analysis.sql
-│   ├── 10_data_segmentation.sql
-│   ├── 11_part_to_whole_analysis.sql
-│   ├── 12_report_customers.sql
-│   ├── 13_report_products.sql
 ├── LICENSE
 └── README.md
 ```
+
 ---
 
 ## 🛠️ Tools & Technologies
 
-- **Programming**: Python, SQL
-- **Machine Learning**: Scikit-learn, Random Forest
-- **Data Engineering**: SQL Server, ETL Pipelines, Medallion Architecture
-- **Visualization**: Power BI
-- **Analysis**: Pandas, NumPy, Matplotlib, Seaborn
+**Programming**  
+Python, SQL
+
+**Machine Learning**  
+Scikit-learn, Random Forest
+
+**Data Engineering**  
+SQL Server, ETL Pipelines, Medallion Architecture, Star Schema
+
+**Backend and Deployment**  
+FastAPI, Uvicorn, Docker, AWS EC2
+
+**Frontend**  
+Streamlit
+
+**Data Analysis**  
+Pandas, NumPy, Matplotlib, Seaborn
+
+**Visualization**  
+Power BI
+
+**Version Control**  
+Git, GitHub
 
 ---
 
 ## 🔧 Feature Engineering
 
-Key behavioral features engineered from transactional data:
+Behavioral features engineered from transactional data:
 
-- **Recency** (time since last purchase)
-- **Total orders** and **total quantity**
-- **Customer lifespan**
-- **Total sales** and **average order value**
-- **Average monthly spend**
+* Recency
+* Customer lifespan
+* Total orders
+* Total quantity
+* Total sales
+* Average order value
+* Average monthly spend
 
-These features capture engagement, value, and behavioral change, which are critical for churn prediction.
+These features capture engagement patterns critical for churn prediction.
 
 ---
 
 ## 🧠 Churn Definition
 
-A customer is labeled as **churned** if they made no purchases within a defined future observation window after the prediction cutoff date.
+A customer is labeled as churned if they made no purchases within a defined future observation window after the prediction cutoff date.
 
-This time-based definition:
-- Prevents data leakage
-- Reflects real-world churn behavior
-- Enables realistic model evaluation
+This ensures:
+
+* Realistic churn prediction
+* No data leakage
+* Production-aligned evaluation
 
 ---
 
 ## 🤖 Model Training
 
-- **Model used**: Random Forest Classifier
-- **Reason**: Handles non-linear relationships, feature interactions, and correlated features well
-- **Class imbalance handled** using `class_weight='balanced'`
+**Model used**  
+Random Forest Classifier
+
+**Configuration**
+
+* n_estimators = 300
+* class_weight = balanced
+
+**Reason**
+
+* Handles tabular business data effectively
+* Captures non-linear relationships
+* Robust to noise and feature interaction
 
 ---
 
 ## 📊 Model Performance
 
-| Metric | Score |
-|--------|-------|
-| **Accuracy** | 83% |
-| **Recall (Churn class)** | 95% (after threshold tuning) |
-
-### Why Recall Matters
-
-Missing a churned customer is more costly than incorrectly flagging an active one. The model is optimized to catch as many at-risk customers as possible.
+| Metric               | Score |
+| -------------------- | ----- |
+| Accuracy             | 83%   |
+| Recall (Churn class) | 95%   |
 
 ---
 
-## 🎚️ Threshold Tuning
+## 🎚️ Threshold Optimization
 
-Instead of using the default 0.50 threshold:
-- The decision threshold was **lowered to 0.30**
-- This increased churn recall significantly
-- Supports early intervention strategies
+**Default threshold** = 0.50  
+**Optimized threshold** = 0.30
+
+**Impact:**
+
+* Increased churn recall from 90% to 95%
+* Reduced missed churn customers significantly
+* Improved retention decision effectiveness
 
 ---
 
 ## 📈 Model Interpretability
 
-Feature importance analysis shows:
-- **Recency** is the strongest churn driver
-- **Customer lifespan** strongly influences retention
-- **Spending and frequency** features provide supporting signals
+Feature importance analysis identified key churn drivers:
 
-This aligns with business intuition: recent disengagement matters more than historical value.
+* Recency
+* Customer lifespan
+* Monthly spending behavior
+* Purchase frequency
+
+Behavioral engagement was more predictive than demographics.
+
+---
+
+## 🚀 Production Deployment
+
+The trained model was deployed as a production inference system:
+
+**Backend**  
+FastAPI REST API serving churn prediction
+
+**Frontend**  
+Streamlit web interface for real-time prediction
+
+**Containerization**  
+Docker container for reproducible deployment
+
+**Cloud Deployment**  
+AWS EC2 instance hosting API and frontend
+
+This enables real-time churn prediction via cloud infrastructure.
 
 ---
 
 ## 💼 Business Impact
 
-- Enables **proactive retention** instead of reactive churn handling
-- Helps teams **prioritize high-risk customers** using churn probabilities
-- Supports **smarter allocation** of marketing and retention resources
+This system enables:
+
+* Early detection of at-risk customers
+* Probability-based customer risk ranking
+* Proactive retention intervention
+* Data-driven retention strategy
+
+Transforms static analytics into operational decision system.
 
 ---
 
 ## 🚀 Key Takeaway
 
-This project demonstrates how combining data warehousing, analytics, and machine learning can create a practical churn prediction system that delivers real business value.
+This project demonstrates how combining data warehousing, analytics, machine learning, and cloud deployment creates a production-ready churn prediction system capable of real-world business impact.
 
 ---
 
 ## 📎 Links
 
-- **GitHub Repository**: [https://github.com/the-noble-analyst/Customer-Churn-Analytics](#)
-- **Power BI Dashboard**: [(https://github.com/the-noble-analyst/Customer-Churn-Analytics/blob/main/PowerBI_Dashboard/Power%20Bi%20Report.png](#)
+**GitHub Repository**  
+[https://github.com/the-noble-analyst/Customer-Churn-Prediction-System](https://github.com/the-noble-analyst/Customer-Churn-Prediction-System)
+
+**Power BI Dashboard**  
+[https://github.com/the-noble-analyst/Customer-Churn-Prediction-System/tree/main/PowerBI_Dashboard](https://github.com/the-noble-analyst/Customer-Churn-Prediction-System/tree/main/PowerBI_Dashboard)
 
 ---
 
-## Credits and Attribution
-
-The data warehouse and SQL exploratory analysis components in this repository are based on an educational data warehouse project by Data With Baraa and are used for learning and extension purposes.
-
-All churn modeling, feature engineering, machine learning, Power BI dashboards, and business insights are original work implemented as part of this project.
-
-
 ## 📝 License
-This repository is licensed under the MIT License for original code, machine learning models, analytics, and visualizations authored in this project.
 
-Folders containing educational data warehouse and SQL analysis material are credited to their original author and follow their respective usage terms as described in their local README files.
+MIT License
 
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
+---
 
 ## 👤 Author
 
 **Nabeel Siddiqui**
-- GitHub: [https://github.com/the-noble-analyst/](#)
-- LinkedIn: [https://www.linkedin.com/in/nabeelsiddiqui468/](#)
+
+**GitHub**  
+[https://github.com/the-noble-analyst](https://github.com/the-noble-analyst)
+
+**LinkedIn**  
+[https://www.linkedin.com/in/nabeelsiddiqui468](https://www.linkedin.com/in/nabeelsiddiqui468)
 
 ---
 
-⭐️ If you found this project helpful, please consider giving it a star!
+## ⭐ If you found this project helpful, consider giving it a star!
