@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # FastAPI endpoint
-API_URL = "http://localhost:8000/predict"
+API_URL = "http://3.109.49.203:8000/predict"
 
 st.title("Customer Churn Prediction System")
 
